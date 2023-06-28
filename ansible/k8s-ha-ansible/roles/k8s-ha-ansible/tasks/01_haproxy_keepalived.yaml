@@ -1,0 +1,63 @@
+- block:
+    - name: Install Packages on both workers and masters
+      become: true
+      when: inventory_hostname in ((groups['master_servers'] + groups['worker_servers']) | unique ) 
+      yum:
+        state: present
+        name: 
+          - psmisc
+          - yum-plugin-versionlock
+
+    - name: Install keepalived on workers
+      become: true
+      when: inventory_hostname in groups['worker_servers']
+      yum:
+        state: present
+        name: 
+          - keepalived-{{ keepalived_version }}
+
+    - name: Copying keepalived conf to the first worker node
+      become: true
+      when: inventory_hostname == groups['worker_servers'][0]
+      template:
+        src: keepalivedw1.j2
+        dest: /etc/keepalived/keepalived.conf
+        mode: "0644"
+  
+    - name: Copying keepalived conf to the second worker node
+      become: true
+      when: inventory_hostname == groups['worker_servers'][1]
+      template:
+        src: keepalivedw2.j2
+        dest: /etc/keepalived/keepalived.conf
+        mode: "0644"
+  
+    - name: Copying keepalived conf to the third worker node
+      become: true
+      when: inventory_hostname == groups['worker_servers'][2]
+      template:
+        src: keepalivedw3.j2
+        dest: /etc/keepalived/keepalived.conf
+        mode: "0644"
+
+    - name: Force systemd to reload configs
+      become: true
+      when: inventory_hostname in ((groups['master_servers'] + groups['worker_servers']) | unique )
+      ansible.builtin.systemd:
+        daemon_reload: yes
+
+    - name: restart and enable keepalived on all nodes
+      become: true
+      when: inventory_hostname in groups['worker_servers']
+      service:
+        name: keepalived
+        enabled: true
+        state: restarted
+
+    - name: Prevent keepalived from being updated
+      become: true
+      when: inventory_hostname in groups['worker_servers']
+      community.general.yum_versionlock:
+        state: present
+        name:
+        - keepalived

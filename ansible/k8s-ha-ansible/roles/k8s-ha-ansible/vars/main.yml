@@ -1,0 +1,27 @@
+MASTER01_HOST : kube-master0
+MASTER01_IP : 65.108.246.228
+WORKER01_HOST : kube-worker0
+WORKER01_IP : 135.181.46.195
+WORKER02_HOST : kube-worker1
+WORKER02_IP : 135.181.90.137
+WORKER03_HOST : kube-worker2
+WORKER03_IP : 65.109.130.198
+VIP_WORKERS : 10.0.1.21
+APISERVER_SRC_PORT : 8443
+cp_endpoint : '65.108.246.228:8443'
+home_directory : /home/itman
+remote_username : itman
+kubernetes_version : 1.26.4
+helm_version : 3.11.3
+containerd_version : 1.6.21-3.1.el8
+cilium_version : 1.13.2
+cri_socket : unix:///var/run/containerd/containerd.sock
+pod_subnet : 10.244.0.0/20
+cluster_name : cluster.local
+haproxy_version : 1.8.27-5.el8
+keepalived_version : 2.1.5-9.el8
+ingress_nginx_version: 4.6.1
+eth_master01 : ens10
+eth_worker01 : ens10
+eth_worker02 : ens10
+eth_worker03 : ens10
