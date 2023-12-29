@@ -3,7 +3,7 @@ variable "hcloud_token" {
 }
 
 variable "location" {
-  default = "hel1"
+  default = "nbg1"
 }
 
 variable "master_instances" {
@@ -15,7 +15,7 @@ variable "worker_instances" {
 }
 
 variable "server_type" {
-  default = "cx21"
+  default = "cpx21"
 }
 
 variable "os_type" {
@@ -59,11 +59,15 @@ variable "home_dir" {
 }
 
 variable "kubernetes_version" {
-  default = "1.26.4"
+  default = "1.28.5"
+}
+
+variable "kubernetes_rpm_version" {
+  default = "1.28"
 }
 
 variable "helm_version" {
-  default = "3.11.3"
+  default = "3.13.3"
 }
 
 variable "containerd_version" {
@@ -71,7 +75,7 @@ variable "containerd_version" {
 }
 
 variable "cilium_version" {
-  default = "1.13.2"
+  default = "1.14.5"
 }
 
 variable "cri_socket" {
@@ -95,7 +99,7 @@ variable "keepalived_version" {
 }
 
 variable "ingress_nginx_version" {
-  default = "4.6.1"
+  default = "4.9.0"
 }
 
 variable "eth_master01" {

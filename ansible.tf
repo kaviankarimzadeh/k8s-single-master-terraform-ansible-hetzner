@@ -45,6 +45,7 @@ resource local_file ansible_vars {
       home_directory : ${var.home_dir}
       remote_username : ${var.remote_usr}
       kubernetes_version : ${var.kubernetes_version}
+      kubernetes_rpm_version : ${var.kubernetes_rpm_version}
       helm_version : ${var.helm_version}
       containerd_version : ${var.containerd_version}
       cilium_version : ${var.cilium_version}

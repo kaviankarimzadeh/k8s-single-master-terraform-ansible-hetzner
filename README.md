@@ -1,6 +1,6 @@
 
 ```
-Deploy a Kubernetes HA (multi-masters) Cluster using Terraform/Ansible on Alma Linux/Rocky OS - (Hetzner)
+Deploy a Single Master Kubernetes Cluster using Terraform/Ansible on Alma Linux/Rocky OS - (Hetzner)
 ```
 
 ```

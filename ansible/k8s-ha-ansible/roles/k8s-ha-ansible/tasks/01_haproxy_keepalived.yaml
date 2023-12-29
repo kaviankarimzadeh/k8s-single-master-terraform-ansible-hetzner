@@ -1,4 +1,9 @@
 - block:
+    - name: update all packages
+      become: true
+      when: inventory_hostname in ((groups['master_servers'] + groups['worker_servers']) | unique )
+      yum: name=* state=latest
+
     - name: Install Packages on both workers and masters
       become: true
       when: inventory_hostname in ((groups['master_servers'] + groups['worker_servers']) | unique ) 
