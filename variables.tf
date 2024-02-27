@@ -59,15 +59,15 @@ variable "home_dir" {
 }
 
 variable "kubernetes_version" {
-  default = "1.28.5"
+  default = "1.29.2"
 }
 
 variable "kubernetes_rpm_version" {
-  default = "1.28"
+  default = "1.29"
 }
 
 variable "helm_version" {
-  default = "3.13.3"
+  default = "3.14.2"
 }
 
 variable "containerd_version" {
@@ -75,7 +75,7 @@ variable "containerd_version" {
 }
 
 variable "cilium_version" {
-  default = "1.14.5"
+  default = "1.15.1"
 }
 
 variable "cri_socket" {
@@ -99,7 +99,7 @@ variable "keepalived_version" {
 }
 
 variable "ingress_nginx_version" {
-  default = "4.9.0"
+  default = "4.9.1"
 }
 
 variable "eth_master01" {
